@@ -1,39 +1,7 @@
-class StringBuilder {
-    #value;
+const input = document.querySelector('#name-input');
+  const output = document.querySelector('#name-output');
 
-    constructor(value) {
-        this.#value = value;
-    }
-
-    getValue() {
-        return this.#value;
-    }
-
-    padEnd(str) {
-        this.#value += str;
-    }
-
-    padStart(str) {
-        this.#value = str + this.#value;
-    }
-
-    padBoth(str) {
-        this.#value = str + this.#value + str;
-    }
-
-    // padBoth(str) {
-    // this.padStart(str);
-    // this.padEnd(str);
-    // }
-}
-
-const builder = new StringBuilder(".");
-console.log(builder.getValue()); // "."
-builder.padStart("^");
-console.log(builder.getValue()); // "^."
-builder.padEnd("^");
-console.log(builder.getValue()); // "^.^"
-builder.padBoth("=");
-console.log(builder.getValue()); // "=^.^="
-
-console.log("___________________________________________________________");
+  input.addEventListener('input', () => {
+    const trimmedValue = input.value.trim();
+    output.textContent = trimmedValue === '' ? 'Anonymous' : trimmedValue;
+  });
